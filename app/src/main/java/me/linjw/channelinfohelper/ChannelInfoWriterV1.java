@@ -66,7 +66,9 @@ public class ChannelInfoWriterV1 implements IChannelInfoWriter {
         // 魔数放在最后面方便我们读取判断是否有渠道信息
 
         short infoLength = (short) channelInfo.getBytes().length;
-        short channelBlockSize = (short) (infoLength + Short.BYTES + Integer.BYTES);
+        short channelBlockSize = (short) (infoLength // 渠道信息
+                + Short.BYTES      // 渠道信息长度
+                + Integer.BYTES);  // 渠道信息魔数
         ByteBuffer buffer = ByteBuffer.allocate(eocd.capacity() + channelBlockSize);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
 

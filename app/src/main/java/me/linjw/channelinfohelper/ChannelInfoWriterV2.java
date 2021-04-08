@@ -163,5 +163,4 @@ public class ChannelInfoWriterV2 implements IChannelInfoWriter {
         buffer.flip();
         return buffer;
     }
-
 }
